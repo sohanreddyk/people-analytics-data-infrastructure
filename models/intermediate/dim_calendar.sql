@@ -28,9 +28,11 @@
           upstream dependencies per the build order. Once
           int_employee_monthly_roster exists, this column can be refactored
           to reference MAX(report_month) from the roster for precision.
-*/
 
-{{ config(materialized='table') }}
+    Note:
+        Materialization (table) is set in dbt_project.yml as a per-model
+        override of the intermediate-layer default (view).
+*/
 
 with date_spine as (
 
